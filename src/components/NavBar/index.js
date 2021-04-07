@@ -5,8 +5,8 @@ import { RiShoppingCart2Line } from "react-icons/ri";
 
 const MenuBar = () => {
   return (
-    <div className={styles.nav}>
-      <Navbar expand="lg" className="sticky-top container">
+    <div className={`sticky-top  ${styles.nav}`}>
+      <Navbar expand="lg" className="container">
         <Navbar.Brand href="/">
           <img src="./assets/logo.svg" alt="logo" />
         </Navbar.Brand>

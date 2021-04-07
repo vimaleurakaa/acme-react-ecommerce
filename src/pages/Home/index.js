@@ -11,7 +11,6 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <MenuBar />
         <HeroBanner />
         <Support />
         <Safe />

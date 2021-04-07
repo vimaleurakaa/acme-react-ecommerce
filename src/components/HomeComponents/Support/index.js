@@ -20,7 +20,9 @@ const Support = () => {
             </p>
           </div>
         </div>
-        <div className={`row ${styles.support_wrapper}`}>
+        <div
+          className={`row row-cols-sm-1 row-cols-md-2 row-cols-lg-3  ${styles.support_wrapper}`}
+        >
           {data.map(({ title, desc, number, img }, index) => (
             <SupportCard
               key={title + index}
