@@ -5,7 +5,6 @@ import ProductSection from "../../components/HomeComponents/ProductsSection";
 import Safe from "../../components/HomeComponents/Safe";
 import ShopLocalTestimony from "../../components/HomeComponents/ShopLocalTestimony";
 import Support from "../../components/HomeComponents/Support";
-import MenuBar from "../../components/NavBar";
 
 class Home extends React.Component {
   render() {
