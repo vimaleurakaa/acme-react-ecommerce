@@ -1,0 +1,55 @@
+.shop_local {
+  padding: 6rem 0;
+}
+
+.shop_local_wrapper {
+  position: relative;
+  display: flex;
+  min-height: 500px;
+  justify-content: flex-end;
+}
+
+.shop_local_left {
+  position: absolute;
+  left: 0%;
+  top: 6%;
+  right: auto;
+  bottom: 0%;
+  width: 30%;
+  height: 0px;
+  min-height: 440px;
+  border-radius: 5px;
+  background-image: url(../../../assets/shop_testimony_img.jpg);
+  background-position: 69% 80%;
+  background-size: 270%;
+}
+
+.shop_local_right {
+  display: flex;
+  width: 80%;
+  padding: 45px;
+  justify-content: flex-end;
+  border-radius: 5px;
+  background-color: #222;
+  color: #f9f9f9;
+
+  & .shop_local_content {
+    width: 90%;
+    padding: 0 8rem;
+
+    & h1 {
+      font-weight: bold;
+      margin-bottom: 1.4rem;
+    }
+
+    & h5 {
+      font-weight: bold;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .shop_local {
+    display: none !important;
+  }
+}

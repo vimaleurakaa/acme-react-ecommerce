@@ -1,0 +1,42 @@
+.footer {
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+  background-color: var(--acm-primary-dark);
+}
+
+.footer_left {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.footer_right {
+  text-align: right;
+  margin-bottom: 1rem;
+  & .footer_social_icons {
+    color: var(--acm-snow-white);
+    font-size: 2rem;
+
+    & .icon {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.footer_bottom {
+  color: var(--acm-snow-white);
+  text-align: center;
+
+  & p a {
+    color: var(--acm-primary-color);
+    margin-left: 0.4rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .footer_left {
+    text-align: center;
+  }
+  .footer_right {
+    text-align: center;
+  }
+}

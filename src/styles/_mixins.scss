@@ -1,0 +1,14 @@
+@mixin acmeButton($color, $background) {
+  background: $background;
+  color: $color;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: all 0.15s ease;
+}
+
+@mixin acmeButtonHover($color, $background) {
+  background: $background;
+  color: $color;
+}

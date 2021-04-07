@@ -1,0 +1,15 @@
+.nav {
+  background-color: var(--acm-primary-color);
+  padding: 0.2em 0;
+}
+
+.nav_item {
+  color: #fff !important;
+  margin: 0 1rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--acm-primary-dark);
+    border-radius: 0.3rem;
+  }
+}
