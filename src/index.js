@@ -4,10 +4,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/index.scss";
 import "./index.scss";
 import App from "./routes/App";
+import { Provider } from "react-redux";
+import { store } from "./data/store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

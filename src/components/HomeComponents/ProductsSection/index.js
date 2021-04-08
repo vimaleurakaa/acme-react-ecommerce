@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Product from "../../../containers/ProductContainer";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.scss";
+import { getProducts } from "../../../data/store/action";
+import { Link } from "react-router-dom";
 
 const ProductSection = () => {
+  const dispatch = useDispatch();
+  const product = useSelector((state) => state);
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   return (
     <section className={styles.product_section}>
       <div className="container">
@@ -10,32 +21,27 @@ const ProductSection = () => {
           <h1>Open 24/7/365.</h1>
         </div>
 
-        <div className={styles.product_list_wrapper}>
-          <div className={styles.product_list_item}>
-            <div className={styles.product_item_wrapper}>
-              <a href="#product">
-                <div className={styles.product_image}>
-                  <div className={styles.product_badge}>Sale</div>
-                </div>
-                <div className={styles.product_details_wrapper}>
-                  <div className={styles.product_details}>
-                    <h5>White Tent</h5>
-                    <div className={styles.product_price_wrapper}>
-                      <p>
-                        $ 35.00 USD
-                        <span>$ 145.00 USD</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <div className={styles.shop_btn_wrapper}>
-                <a className={`${styles.shop_btn} btn`} href="#shop">
-                  Details
-                </a>
-              </div>
-            </div>
+        <div className="product_list_wrapper">
+          <div className="product_list_item">
+            {product?.slice(0, 3).map((item) => (
+              <Product
+                category={item.category}
+                discount={item.discount}
+                key={item.productId}
+                sale={item.sale}
+                title={item.title}
+                img={item.img}
+                price={item.price}
+                id={item.productId}
+              />
+            ))}
           </div>
+        </div>
+        <hr />
+        <div className="explore_btn_wrapper">
+          <Link to="/shop">
+            <button className="shop_btn btn">Load more</button>
+          </Link>
         </div>
       </div>
     </section>
