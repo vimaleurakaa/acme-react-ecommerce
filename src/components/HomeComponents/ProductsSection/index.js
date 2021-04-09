@@ -33,8 +33,9 @@ const ProductSection = () => {
 
         <div className="product_list_wrapper">
           <div className="product_list_item">
-            {product.items?.slice(initialValue, endValue).map((item) => (
+            {product.items?.slice(initialValue, endValue).map((item, index) => (
               <Product
+                index={index}
                 category={item.category}
                 discount={item.discount}
                 key={item.productId}

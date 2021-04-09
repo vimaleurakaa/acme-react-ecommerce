@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CategoryMenu from "../../components/ShopComponents/CategoryMenu";
 import FeaturedProduct from "../../components/ShopComponents/FeaturedPorduct";
 import ProductCard from "../../containers/ProductContainer";
 import styles from "./index.module.scss";
 import { filterProducts } from "../../data/store/action";
+import { useLocation } from "react-router";
 
 const Shop = () => {
   const dispatch = useDispatch();
   const product = useSelector((state) => state);
 
-  const [active, setActive] = useState(null);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  const [active, setActive] = useState("All");
 
   const catClickHandler = (e, category) => {
     dispatch(filterProducts(product.items, e.target.id));
@@ -23,6 +30,7 @@ const Shop = () => {
           <h1>Shop Our Products</h1>
         </div>
       </section>
+
       <FeaturedProduct />
       <div className="container py-5">
         <div className="row">
@@ -34,8 +42,9 @@ const Shop = () => {
           <div className="col-12 col-md-8 col-lg-9 ">
             <div className="product_list_wrapper">
               <div className="product_list_item">
-                {product.filteredItems?.map((item) => (
+                {product.filteredItems?.map((item, i) => (
                   <ProductCard
+                    index={i}
                     category={item.category}
                     discount={item.discount}
                     key={item.productId}

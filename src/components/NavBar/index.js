@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import styles from "./index.module.scss";
 import { RiShoppingCart2Line } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const MenuBar = () => {
   return (
@@ -13,22 +14,22 @@ const MenuBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`ml-auto ${styles.navbar_items}`}>
-            <Nav.Link className={styles.nav_item} href="#home">
+            <Nav.Link className={styles.nav_item} as={Link} to="/">
               Home
             </Nav.Link>
-            <Nav.Link className={styles.nav_item} href="#about">
+            <Nav.Link className={styles.nav_item} as={Link} to="/about">
               About
             </Nav.Link>
-            <Nav.Link className={styles.nav_item} href="#about">
+            <Nav.Link className={styles.nav_item} as={Link} to="/shop">
               Shop
             </Nav.Link>
-            <Nav.Link className={styles.nav_item} href="#about">
+            <Nav.Link className={styles.nav_item} as={Link} to="/donate">
               Donate
             </Nav.Link>
-            <Nav.Link className={styles.nav_item} href="#about">
+            <Nav.Link className={styles.nav_item} as={Link} to="/contact">
               Contact
             </Nav.Link>
-            <Nav.Link className={styles.nav_item} href="#cart">
+            <Nav.Link className={styles.nav_item} as={Link} to="/cart">
               <RiShoppingCart2Line />
             </Nav.Link>
           </Nav>

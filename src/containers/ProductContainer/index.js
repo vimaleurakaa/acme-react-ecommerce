@@ -10,11 +10,12 @@ const Product = ({
   id,
   sale,
   externalStyle,
+  index,
 }) => {
   return (
     <>
       <div className={`product_item_wrapper ${category} ${externalStyle}`}>
-        <Link to={`/shop/${id}`}>
+        <Link to={`/product/${title}&${index}`}>
           <div
             className="product_image"
             style={{
