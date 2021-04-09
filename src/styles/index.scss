@@ -111,6 +111,22 @@
   }
 }
 
+.product_list_style {
+  & .product_image {
+    min-height: 360px;
+  }
+
+  & .shop_btn_wrapper {
+    width: 100%;
+  }
+}
+
+.category-active {
+  background-color: var(--acm-primary-color) !important;
+  color: var(--acm-snow-white) !important;
+  border-color: var(--acm-primary-color) !important;
+}
+
 @media (max-width: 992px) {
   .product_list_item {
     grid-template-columns: 2fr 2fr;

@@ -1,0 +1,54 @@
+.featured_section {
+  padding-top: 6rem;
+}
+
+.product_wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  border-radius: 5px;
+  background-position: 50% 50%;
+  background-size: cover;
+  color: #f9f9f9;
+  text-decoration: none;
+
+  & .badge {
+    position: absolute;
+    left: auto;
+    top: 8%;
+    right: 1%;
+    bottom: auto;
+    z-index: 10;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    padding: 5px 20px;
+    color: #222;
+  }
+
+  & .featured_text {
+    position: absolute;
+    left: 2%;
+    top: auto;
+    right: auto;
+    bottom: 6%;
+
+    & h3 {
+      font-weight: bold;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    border-radius: 5px;
+    background-image: linear-gradient(
+      180deg,
+      rgba(34, 34, 34, 0.22),
+      rgba(34, 34, 34, 0.69)
+    );
+  }
+}

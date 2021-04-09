@@ -1,0 +1,33 @@
+@import "../../../styles/mixins";
+
+.category_menu {
+  & h5 {
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  & .category_list {
+    margin-top: 2rem;
+    & .category_list_item {
+      margin-bottom: 0.8rem;
+      & .category_btn {
+        width: 100%;
+        text-transform: capitalize;
+        @include acmeButton(var(--acm-primary-dark), transparent);
+        border: 1px solid var(--acm-primary-dark);
+
+        &:hover {
+          @include acmeButtonHover(
+            var(--acm-snow-white),
+            var(--acm-primary-color)
+          );
+          border: 1px solid var(--acm-primary-color);
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

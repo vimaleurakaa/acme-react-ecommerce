@@ -1,10 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Product = ({ category, discount, img, title, price, id, sale }) => {
+const Product = ({
+  category,
+  discount,
+  img,
+  title,
+  price,
+  id,
+  sale,
+  externalStyle,
+}) => {
   return (
     <>
-      <div className={`product_item_wrapper ${category}`}>
+      <div className={`product_item_wrapper ${category} ${externalStyle}`}>
         <Link to={`/shop/${id}`}>
           <div
             className="product_image"

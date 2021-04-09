@@ -11,3 +11,19 @@ export const getProducts = () => {
     });
   };
 };
+
+export const filterProducts = (products, category) => {
+  return (dispatch) => {
+    dispatch({
+      type: "FILTER_PRODUCTS_CATEGORY",
+      payload: {
+        items:
+          category === "All"
+            ? products
+            : products.filter((item) => {
+                return item.category.includes(category);
+              }),
+      },
+    });
+  };
+};
