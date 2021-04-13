@@ -16,18 +16,11 @@ export const getProducts = () => {
   };
 };
 
-export const filterProducts = (products, category) => {
+export const filterProducts = (category) => {
   return (dispatch) => {
     dispatch({
       type: _.FILTER_PRODUCTS_CATEGORY,
-      payload: {
-        items:
-          category === "All"
-            ? products
-            : products.filter((item) => {
-                return item.categories[0].name.includes(category);
-              }),
-      },
+      payload: category,
     });
   };
 };

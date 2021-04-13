@@ -38,22 +38,26 @@ const ProductSection = () => {
         </div>
 
         <div className="product_list_wrapper">
-          <div className="product_list_item">
-            {product.items?.slice(initialValue, endValue).map((item) => (
-              <Product
-                category={item.categories[0].name}
-                discount={item.price.raw + Math.floor(Math.random() * 200)}
-                key={item.id}
-                sale={Math.random() < 0.5}
-                title={item.name}
-                img={item.media.source}
-                price={item.price.raw}
-                id={item.id}
-                addToCart={handleAddToCart}
-                externalStyle=""
-              />
-            ))}
-          </div>
+          {product.items?.[0] === undefined ? (
+            <div className="loader">Loading...</div>
+          ) : (
+            <div className="product_list_item">
+              {product.items?.slice(initialValue, endValue).map((item) => (
+                <Product
+                  category={item.categories[0].name}
+                  discount={item.price.raw + Math.floor(Math.random() * 200)}
+                  key={item.id}
+                  sale={Math.random() < 0.5}
+                  title={item.name}
+                  img={item.media.source}
+                  price={item.price.raw}
+                  id={item.id}
+                  addToCart={handleAddToCart}
+                  externalStyle=""
+                />
+              ))}
+            </div>
+          )}
         </div>
         <hr />
         <div className="explore_btn_wrapper">

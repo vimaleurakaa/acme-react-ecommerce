@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./index.module.scss";
 import { FaFacebook, FaInstagram, FaTwitterSquare } from "react-icons/fa";
+import Logo from "../../assets/logo.svg";
 
 const Footer = () => {
   return (
@@ -9,7 +10,7 @@ const Footer = () => {
         <div className={`${styles.footer_wrapper} row`}>
           <div className={`${styles.footer_left} col-md-6`}>
             <a href="#home">
-              <img src="./assets/logo.svg" alt="logo" />
+              <img src={Logo} alt="logo" />
             </a>
           </div>
           <div className={`${styles.footer_right} col-md-6`}>

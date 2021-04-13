@@ -19,11 +19,21 @@ export const products = (state = initialState, { type, payload }) => {
       };
 
     case _.FILTER_PRODUCTS_CATEGORY:
-      return {
-        ...state,
-        filteredItems: payload.items,
-        category: payload.category,
-      };
+      const filteredData = state.items.filter((item) =>
+        item.categories[0].name.includes(payload)
+      );
+
+      if (payload === "All") {
+        return {
+          ...state,
+          filteredItems: state.items,
+        };
+      } else {
+        return {
+          ...state,
+          filteredItems: filteredData,
+        };
+      }
 
     case _.ADD_TO_CART:
       const addToCart = state.items.find((item) => item.id === payload);

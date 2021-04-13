@@ -20,7 +20,7 @@ const Shop = () => {
   const [active, setActive] = useState("All");
 
   const catClickHandler = (e, category) => {
-    dispatch(filterProducts(product.items, e.target.id));
+    dispatch(filterProducts(e.target.id));
     setActive(category);
   };
 
@@ -37,35 +37,44 @@ const Shop = () => {
       </section>
 
       <FeaturedProduct />
-      <div className="container py-5">
-        <div className="row">
-          <CategoryMenu
-            click={(e, category) => catClickHandler(e, category)}
-            active={active}
-          />
 
-          <div className="col-12 col-md-8 col-lg-9 ">
-            <div className="product_list_wrapper">
-              <div className="product_list_item">
-                {product.filteredItems?.map((item) => (
-                  <ProductCard
-                    category={item.categories[0].name}
-                    discount={item.price.raw + Math.floor(Math.random() * 200)}
-                    key={item.id}
-                    sale={Math.random() < 0.5}
-                    title={item.name}
-                    img={item.media.source}
-                    price={item.price.raw}
-                    id={item.id}
-                    externalStyle="product_list_style"
-                    addToCart={handleAddToCart}
-                  />
-                ))}
+      {product.items?.[0] === undefined ? (
+        <div className="product_details_loader">
+          <div className="loader">Loading...</div>
+        </div>
+      ) : (
+        <div className="container py-5">
+          <div className="row">
+            <CategoryMenu
+              click={(e, category) => catClickHandler(e, category)}
+              active={active}
+            />
+
+            <div className="col-12 col-md-8 col-lg-9 ">
+              <div className="product_list_wrapper">
+                <div className="product_list_item">
+                  {product.filteredItems?.map((item) => (
+                    <ProductCard
+                      category={item.categories[0].name}
+                      discount={
+                        item.price.raw + Math.floor(Math.random() * 200)
+                      }
+                      key={item.id}
+                      sale={Math.random() < 0.5}
+                      title={item.name}
+                      img={item.media.source}
+                      price={item.price.raw}
+                      id={item.id}
+                      externalStyle="product_list_style"
+                      addToCart={handleAddToCart}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
