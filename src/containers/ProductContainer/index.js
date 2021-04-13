@@ -7,22 +7,22 @@ const Product = ({
   img,
   title,
   price,
-  id,
   sale,
   externalStyle,
-  index,
+  id,
+  addToCart,
 }) => {
   return (
     <>
       <div className={`product_item_wrapper ${category} ${externalStyle}`}>
-        <Link to={`/product/${title}&${index}`}>
+        <Link to={`/product/${id}`}>
           <div
             className="product_image"
             style={{
               backgroundImage: `url(${img})`,
             }}
           >
-            {sale === "true" ? <div className="product_badge">Sale</div> : ""}
+            {sale === true ? <div className="product_badge">New</div> : ""}
           </div>
           <div className="product_details_wrapper">
             <div className="product_details">
@@ -37,9 +37,9 @@ const Product = ({
           </div>
         </Link>
         <div className="shop_btn_wrapper">
-          <a className="shop_btn btn" href="#shop">
+          <button className="shop_btn btn" onClick={() => addToCart(id)}>
             Add to cart
-          </a>
+          </button>
         </div>
       </div>
     </>

@@ -1,12 +1,18 @@
 import React from "react";
 import Product from "../../../containers/ProductContainer";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.scss";
 import { Link } from "react-router-dom";
+import { addToCart } from "../../../data/store/action";
 
 const ProductSection = () => {
   const product = useSelector((state) => state);
+  const dispatch = useDispatch();
   const dataLength = product.items?.length - 3;
+
+  const handleAddToCart = (product_id) => {
+    dispatch(addToCart(product_id));
+  };
 
   let initialValue = 0;
   let endValue = 0;
@@ -33,17 +39,17 @@ const ProductSection = () => {
 
         <div className="product_list_wrapper">
           <div className="product_list_item">
-            {product.items?.slice(initialValue, endValue).map((item, index) => (
+            {product.items?.slice(initialValue, endValue).map((item) => (
               <Product
-                index={index}
-                category={item.category}
-                discount={item.discount}
-                key={item.productId}
-                sale={item.sale}
-                title={item.title}
-                img={item.img}
-                price={item.price}
-                id={item.productId}
+                category={item.categories[0].name}
+                discount={item.price.raw + Math.floor(Math.random() * 200)}
+                key={item.id}
+                sale={Math.random() < 0.5}
+                title={item.name}
+                img={item.media.source}
+                price={item.price.raw}
+                id={item.id}
+                addToCart={handleAddToCart}
                 externalStyle=""
               />
             ))}

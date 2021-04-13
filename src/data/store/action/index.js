@@ -1,13 +1,17 @@
-import axios from "axios";
+import { commerce } from "../../services/commerce";
+import * as _ from "../action/action-types";
 
 export const getProducts = () => {
   return async (dispatch) => {
-    const response = await axios.get(
-      "https://a-todo-app-default-rtdb.firebaseio.com/acme_products.json"
-    );
+    const products = await commerce.products.list();
+    const categories = await commerce.categories.list();
+
     dispatch({
-      type: "FETCH_PRODUCTS",
-      payload: response.data,
+      type: _.FETCH_PRODUCTS,
+      payload: {
+        productsData: products.data,
+        categoriesData: categories.data,
+      },
     });
   };
 };
@@ -15,15 +19,33 @@ export const getProducts = () => {
 export const filterProducts = (products, category) => {
   return (dispatch) => {
     dispatch({
-      type: "FILTER_PRODUCTS_CATEGORY",
+      type: _.FILTER_PRODUCTS_CATEGORY,
       payload: {
         items:
           category === "All"
             ? products
             : products.filter((item) => {
-                return item.category.includes(category);
+                return item.categories[0].name.includes(category);
               }),
       },
+    });
+  };
+};
+
+export const addToCart = (product) => {
+  return (dispatch) => {
+    dispatch({
+      type: _.ADD_TO_CART,
+      payload: product,
+    });
+  };
+};
+
+export const deleteFromCart = (product) => {
+  return (dispatch) => {
+    dispatch({
+      type: _.REMOVE_FROM_CART,
+      payload: product,
     });
   };
 };

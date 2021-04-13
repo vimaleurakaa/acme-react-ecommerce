@@ -4,7 +4,7 @@ import CategoryMenu from "../../components/ShopComponents/CategoryMenu";
 import FeaturedProduct from "../../components/ShopComponents/FeaturedPorduct";
 import ProductCard from "../../containers/ProductContainer";
 import styles from "./index.module.scss";
-import { filterProducts } from "../../data/store/action";
+import { addToCart, filterProducts } from "../../data/store/action";
 import { useLocation } from "react-router";
 
 const Shop = () => {
@@ -23,6 +23,11 @@ const Shop = () => {
     dispatch(filterProducts(product.items, e.target.id));
     setActive(category);
   };
+
+  const handleAddToCart = (product_id) => {
+    dispatch(addToCart(product_id));
+  };
+
   return (
     <>
       <section className={styles.title_section}>
@@ -42,18 +47,18 @@ const Shop = () => {
           <div className="col-12 col-md-8 col-lg-9 ">
             <div className="product_list_wrapper">
               <div className="product_list_item">
-                {product.filteredItems?.map((item, i) => (
+                {product.filteredItems?.map((item) => (
                   <ProductCard
-                    index={i}
-                    category={item.category}
-                    discount={item.discount}
-                    key={item.productId}
-                    sale={item.sale}
-                    title={item.title}
-                    img={item.img}
-                    price={item.price}
-                    id={item.productId}
+                    category={item.categories[0].name}
+                    discount={item.price.raw + Math.floor(Math.random() * 200)}
+                    key={item.id}
+                    sale={Math.random() < 0.5}
+                    title={item.name}
+                    img={item.media.source}
+                    price={item.price.raw}
+                    id={item.id}
                     externalStyle="product_list_style"
+                    addToCart={handleAddToCart}
                   />
                 ))}
               </div>
