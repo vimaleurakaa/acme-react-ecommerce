@@ -28,7 +28,6 @@ export const products = (state = initialState, { type, payload }) => {
     case _.ADD_TO_CART:
       const addToCart = state.items.find((item) => item.id === payload);
 
-      //check if product already in cart!!
       const checkProductExists = state.cartItems.find(
         (item) => item.id === payload
       );
