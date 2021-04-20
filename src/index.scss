@@ -1,8 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap');
 
 body {
-  margin: 0;
-  font-family: "Sen", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: 'Sen', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.cart_items_count {
+	background-color: var(--acm-primary-dark);
+	padding: 0.3rem 0.6rem;
+	border-radius: 3rem;
+	margin-left: 0.5rem;
+	font-size: 0.6rem;
 }

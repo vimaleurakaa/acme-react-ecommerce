@@ -1,17 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles/index.scss";
-import "./index.scss";
-import App from "./routes/App";
-import { Provider } from "react-redux";
-import { store } from "./data/store";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
+import './styles/index.scss';
+import './index.scss';
+import App from './routes/App';
+import { Provider } from 'react-redux';
+import { store } from './data/store';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+	<React.StrictMode>
+		<Provider store={store}>
+			<App />
+		</Provider>
+	</React.StrictMode>,
+	document.getElementById('root')
 );
